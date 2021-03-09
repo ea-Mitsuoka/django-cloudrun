@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include   # ←, includeを追加
+from mybook import views
 
 urlpatterns = [
+    path('', views.index, name='cms'),  # TOP_PAGE
     path('cms/', include('cms.urls')),   # ←ここを追加
     path('admin/', admin.site.urls),
 ]
