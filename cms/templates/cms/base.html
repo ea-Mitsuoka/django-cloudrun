@@ -11,9 +11,7 @@
 
     gtag('config', 'G-K89JEX5BDT');
     gtag('event', 'add_payment_info');
-    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientId) => {
-      ServerAPI.addCustomerTier(clientId, [{name: "add_payment_info"}]);
-    });
+    gtag('get', 'G-K89JEX5BDT', 'client_id', (client_id) => console.log(client_id));
   </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
