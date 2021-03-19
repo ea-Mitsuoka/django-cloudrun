@@ -11,9 +11,24 @@
     gtag('config', 'G-K89JEX5BDT');
 
     gtag('event', 'add_payment_info');
-    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientId) => {
-      ServerAPI.addCustomerTier(clientId, [{name: "add_payment_info"}]);
+    // Promise に値を取得する
+    const gclidPromise = new Promise(resolve => {
+      gtag('get', 'G-K89JEX5BDT', 'gclid', resolve)
     });
+    gclidPromise.then((gclid) => {
+      // Do something with gclid...
+      console.log(gclid)
+    })
+
+    // Measurement Protocol にイベントを送信する 
+    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientID) => {
+      sendOfflineEvent(clientID, "tutorial_begin")
+    });
+
+    function sendOfflineEvent(clientID, eventName, eventData) {
+      // Send necessary data to your server...
+    }
+
   </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
