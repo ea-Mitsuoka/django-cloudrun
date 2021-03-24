@@ -8,8 +8,9 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+    // https://stackoverflow.com/questions/62569419/how-to-set-secure-attribute-of-the-cookies-used-by-google-analytics-global-sit
     gtag('config', 'G-K89JEX5BDT', { cookie_flags: 'SameSite=None;Secure' });
-
+    /*
     gtag('event', 'add_payment_info');
     // Promise に値を取得する
     const gclidPromise = new Promise(resolve => {
@@ -27,7 +28,7 @@
 
     function sendOfflineEvent(clientID, eventName, eventData) {
       // Send necessary data to your server...
-    }
+    }*/
 
   </script>
 <meta charset="UTF-8">
