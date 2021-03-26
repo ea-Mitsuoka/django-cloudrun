@@ -9,12 +9,9 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-K89JEX5BDT', { cookie_flags: 'SameSite=None;Secure' });
-
-    gtag('event', 'add_payment_info');
-
     const measurement_id = 'G-K89JEX5BDT';
-    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
+    gtag('config', measurement_id, { cookie_flags: 'SameSite=None;Secure' });
+    gtag('event', 'add_payment_info');
 
     // Promise に値を取得する
     const gclidPromise = new Promise(resolve => {
@@ -25,6 +22,7 @@
       console.log(gclid)
     })
 
+    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
     // Send necessary data to your server...
     function sendOfflineEvent(clientId, events){
       fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
