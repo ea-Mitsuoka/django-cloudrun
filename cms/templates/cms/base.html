@@ -12,6 +12,27 @@
     gtag('config', 'G-K89JEX5BDT', { cookie_flags: 'SameSite=None;Secure' });
 
     gtag('event', 'add_payment_info');
+    // var clientId = ""
+    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientId) => {
+      ServerAPI.addCustomerTier(clientId, [{name: "add_payment_info"}]);
+    });
+
+    console.log(clientId);
+
+    const measurementId = 'G-K89JEX5BDT';
+    const apiSecret = 'A4vHeqgJSf28DUNA7M597g';
+    // Send necessary data to your server...
+    fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
+      method: "POST",
+      body: JSON.stringify({
+        client_id: clientId,
+        events: [{
+          name: 'tutorial_begin',
+          params: {},
+        }]
+      })
+    });
+    /*
     // Promise に値を取得する
     const gclidPromise = new Promise(resolve => {
       gtag('get', 'G-K89JEX5BDT', 'gclid', resolve)
@@ -30,18 +51,8 @@
     const measurement_id = 'G-K89JEX5BDT';
     const api_secret = 'A4vHeqgJSf28DUNA7M597g';
     function sendOfflineEvent(clientID, eventName, eventData) {
-      // Send necessary data to your server...
-      fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
-        method: "POST",
-        body: JSON.stringify({
-          client_id: clientID,
-          events: [{
-            name: eventName,
-            params: {},
-          }]
-        })
-      });
-    }
+
+    }*/
 
   </script>
 <meta charset="UTF-8">
