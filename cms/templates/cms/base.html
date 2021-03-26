@@ -22,13 +22,8 @@
       console.log(gclid)
     })
 
-    // Measurement Protocol にイベントを送信する 
-    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientID) => {
-      sendOfflineEvent(clientID, "tutorial_begin")
-    });
-
-    const measurementId = 'G-K89JEX5BDT';
-    const apiSecret = 'A4vHeqgJSf28DUNA7M597g';
+    const measurement_id = 'G-K89JEX5BDT';
+    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
     // Send necessary data to your server...
     function sendOfflineEvent(clientId, events){
       fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
@@ -42,6 +37,11 @@
         })
       });
     }
+    // Measurement Protocol にイベントを送信する 
+    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientID) => {
+      sendOfflineEvent(clientID, "tutorial_begin")
+    });
+
     /*
     // Promise に値を取得する
     const gclidPromise = new Promise(resolve => {
