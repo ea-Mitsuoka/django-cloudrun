@@ -13,17 +13,18 @@
 
     gtag('event', 'add_payment_info');
 
+    const measurement_id = 'G-K89JEX5BDT';
+    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
+
     // Promise に値を取得する
     const gclidPromise = new Promise(resolve => {
-      gtag('get', 'G-K89JEX5BDT', 'gclid', resolve)
+      gtag('get', measurement_id, 'gclid', resolve)
     });
     gclidPromise.then((gclid) => {
       // Do something with gclid...
       console.log(gclid)
     })
 
-    const measurement_id = 'G-K89JEX5BDT';
-    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
     // Send necessary data to your server...
     function sendOfflineEvent(clientId, events){
       fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
@@ -38,7 +39,7 @@
       });
     }
     // Measurement Protocol にイベントを送信する 
-    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientID) => {
+    gtag('get', measurement_id, 'client_id', (clientID) => {
       sendOfflineEvent(clientID, "tutorial_begin")
     });
 
