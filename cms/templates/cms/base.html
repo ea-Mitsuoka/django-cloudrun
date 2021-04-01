@@ -10,18 +10,10 @@
     gtag('js', new Date());
 
     const measurement_id = 'G-K89JEX5BDT';
-    gtag('config', measurement_id, { cookie_flags: 'SameSite=None;Secure' });
-
-    /* テストのためコメント追加
-    // Promise に値を取得する
-    const gclidPromise = new Promise(resolve => {
-      gtag('get', measurement_id, 'gclid', resolve)
-    });
-
-    gclidPromise.then((gclid) => {
-      // Do something with gclid...
-      console.log(gclid)
-    })*/
+    // gtag('config', measurement_id, { cookie_flags: 'SameSite=None;Secure' });
+    gtag('config', measurement_id, {
+      cookie_domain: "django-cloudrun-i7gftfbecq-uc.a.run.app",
+      cookie_flags: "SameSite=None;Secure"});
 
     const api_secret = 'A4vHeqgJSf28DUNA7M597g';
     // Send necessary data to your server...
@@ -33,7 +25,6 @@
           events: [{
             name: 'tutorial_begin',
             params: {client_id: clientId,},
-            // params: {client_id: "514822397.1615362623",},
           }]
         })
       });
