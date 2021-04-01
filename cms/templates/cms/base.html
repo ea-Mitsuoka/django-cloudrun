@@ -16,10 +16,12 @@
     const gclidPromise = new Promise(resolve => {
       gtag('get', measurement_id, 'gclid', resolve)
     });
+
+    /*
     gclidPromise.then((gclid) => {
       // Do something with gclid...
       console.log(gclid)
-    })
+    })*/
 
     const api_secret = 'A4vHeqgJSf28DUNA7M597g';
     // Send necessary data to your server...
@@ -35,33 +37,11 @@
         })
       });
     }
+
     // Measurement Protocol にイベントを送信する 
     gtag('get', measurement_id, 'client_id', (clientID) => {
       sendOfflineEvent(clientID, "tutorial_begin")
     });
-
-    /*
-    // Promise に値を取得する
-    const gclidPromise = new Promise(resolve => {
-      gtag('get', 'G-K89JEX5BDT', 'gclid', resolve)
-    });
-    gclidPromise.then((gclid) => {
-      // Do something with gclid...
-      console.log(gclid)
-    })
-
-    // Measurement Protocol にイベントを送信する 
-    gtag('get', 'G-K89JEX5BDT', 'client_id', (clientID) => {
-      sendOfflineEvent(clientID, "tutorial_begin")
-    });
-
-    // https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=gtag#send_an_event
-    const measurement_id = 'G-K89JEX5BDT';
-    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
-    function sendOfflineEvent(clientID, eventName, eventData) {
-
-    }*/
-
   </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
