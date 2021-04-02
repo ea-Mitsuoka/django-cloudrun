@@ -11,25 +11,9 @@
 
     const measurement_id = 'G-K89JEX5BDT';
     gtag('config', measurement_id);
-
-    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
-    function sendOfflineEvent(clientId, events){
-      // 参考: https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=gtag#send_an_event
-      fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
-        method: "POST",
-        body: JSON.stringify({
-          client_id: clientId, // ユーザエクスプローラで計測
-          events: [{
-            name: 'tutorial_begin',
-            params: {client_id: clientId,},  // paramに追加すればイベントのパラメータでも計測可能
-          }]
-        })
-      });
-    }
-    // Measurement Protocol にイベントを送信する 
-    // 参考: https://developers.google.com/gtagjs/reference/api#set_examples
-    gtag('get', measurement_id, 'client_id', (clientID) => {
-      sendOfflineEvent(clientID, "tutorial_begin")
+    gtag('event', 'add_payment_info');
+    gtag('get', measurement_id, 'client_id', (clientId) => {
+        ServerAPI.addCustomerTier(clientId, [{name: "add_payment_info"}]);
     });
   </script>
 <meta charset="UTF-8">
