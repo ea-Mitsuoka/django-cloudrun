@@ -11,9 +11,8 @@
 
     const measurement_id = 'G-K89JEX5BDT';
     gtag('config', measurement_id);
-    gtag('event', 'add_payment_info');
-    gtag('get', measurement_id, 'client_id', (clientId) => {
-        ServerAPI.addCustomerTier(clientId, [{name: "add_payment_info"}]);
+    gtag('get', measurement_id, 'client_id', (client_id) => {
+      gtag('set', 'user_properties', {'mycid':client_id})
     });
   </script>
 <meta charset="UTF-8">
