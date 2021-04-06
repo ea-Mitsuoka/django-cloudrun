@@ -9,16 +9,10 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     
-    // 
     const measurement_id = 'G-K89JEX5BDT';
     gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
     gtag('config', measurement_id);
-    /*
-    gtag('config', measurement_id, {
-      'anonymize_ip': true, 
-      'cookie_domain': 'https://django-cloudrun-i7gftfbecq-uc.a.run.app',
-      'cookie_flags': 'SameSite=None;Secure'});*/
-
+  
     gtag('get', measurement_id, 'client_id', (client_id) => {
       // gtag('set', 'user_properties', {'mycid':client_id})
       gtag('set', 'user_properties', {'mycid':"7654321098.1615362623"})
