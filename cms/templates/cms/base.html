@@ -2,46 +2,13 @@
 <!DOCTYPE html>{% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K89JEX5BDT"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    const measurement_id = 'G-K89JEX5BDT';
-    // gtag('set', {'cookie_flags': 'SameSite=None;Secure'});
-    gtag('config', measurement_id);
-
-    /*
-    // api_secretの作成を予めGA4で行う
-    // 管理 > 設定アシスタント > タグの設定 > ウェブ > Measurement Protocol API Secretアルファ
-    const api_secret = 'A4vHeqgJSf28DUNA7M597g';
-    function sendOfflineEvent(clientId, events){
-      // 参考: https://developers.google.com/analytics/devguides/collection/protocol/ga4/sending-events?client_type=gtag#send_an_event
-      fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${measurement_id}&api_secret=${api_secret}`, {
-        method: "POST",
-        body: JSON.stringify({
-          client_id: clientId, // ユーザエクスプローラで計測
-          events: [{
-            name: 'tutorial_begin',
-            // params: {},
-            params: {client_id: clientId,},  // paramに追加すればイベントのパラメータでも計測可能
-          }]
-        })
-      });
-    }
-    // Measurement Protocol にイベントを送信する 
-    // 参考: https://developers.google.com/gtagjs/reference/api#set_examples
-    gtag('get', measurement_id, 'client_id', (clientID) => {
-      sendOfflineEvent(clientID, "tutorial_begin")
-    });*/
-
-    gtag('get', measurement_id, 'client_id', (client_id) => {
-      gtag('set', 'user_properties', {'mycid':client_id})
-      // gtag('set', 'user_properties', {'mycid':"9876543210.1615362623"})
-    });
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TNLDH4S');</script>
+  <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="{% static 'cms/css/bootstrap.min.css' %}">
@@ -49,6 +16,10 @@
 <title>{% block title %}My books{% endblock %}</title>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNLDH4S"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <div class="container">
     {% block content %}
       {{ content }}
