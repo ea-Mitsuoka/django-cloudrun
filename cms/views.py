@@ -9,7 +9,8 @@ from cms.forms import BookForm, ImpressionForm
 def top_page(request):
     """トップページ"""
     return render(request,
-                  'cms/top.html')
+                  'google1b6070a40dfc5ddd.html')
+                  # 'cms/top.html')
 
 
 def book_list(request):
