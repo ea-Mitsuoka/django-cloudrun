@@ -18,9 +18,7 @@ from django.urls import path, include   # ←, includeを追加
 from mybook import views
 
 urlpatterns = [
-    # path('', views.index, name='cms'),  # TOP_PAGE
-    path('', views.index, name='index'),  # TOP_PAGE
-    path('google1b6070a40dfc5ddd.html', views.google1b6070a40dfc5ddd, name='google1b6070a40dfc5ddd'),  # TOP_PAGE
+    path('', views.index, name='cms'),  # TOP_PAGE
     path('cms/', include('cms.urls')),   # ←ここを追加
     path('admin/', admin.site.urls),
 ]
