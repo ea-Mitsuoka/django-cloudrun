@@ -6,4 +6,4 @@ def index(request):
 
 def google1b6070a40dfc5ddd(request):
     # return HttpResponseRedirect("https://django-cloudrun-i7gftfbecq-uc.a.run.app/cms/")
-    return HttpResponseRedirect("https://django-cloudrun-i7gftfbecq-uc.a.run.app/index.html")
+    return HttpResponseRedirect("https://django-cloudrun-i7gftfbecq-uc.a.run.app/google1b6070a40dfc5ddd.html")
