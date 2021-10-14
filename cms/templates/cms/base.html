@@ -12,7 +12,7 @@
   window.ga_debug = {trace: true};
   //ga('create', 'UA-732211-9', 'auto');
   const account = 'UA-732211-9'
-  var dimensionValue = 'default';
+  var gaClientId = 'default';
   ga(() => {
     // accountには以下のいずれかが入ります
     // - UA-31336-1
@@ -22,14 +22,13 @@
     // - UA-26840530-1
     // - UA-24513291-13
   const tracker = ga.create(account, "auto");
-  const gaClientId = tracker.get("clientId");
+  var gaClientId = tracker.get("clientId");
   console.log('テストで取得したクライアントIDは、' + gaClientId)
-  dimensionValue = 'DMMテスト ' + gaClientId
   });
 
-  console.log('変数dimensionValueは、' + dimensionValue);
-  ga('send', 'pageview', {'dimension145': dimensionValue});
-  //ga('set', 'dimension145', dimensionValue);
+  console.log('変数gaClientIdは、' + gaClientId);
+  ga('send', 'pageview', {'dimension145': gaClientId});
+  //ga('set', 'dimension145', gaClientId);
   </script>
   <!-- End Google Analytics -->
 <meta charset="UTF-8">
