@@ -12,7 +12,8 @@
   window.ga_debug = {trace: true};
   //ga('create', 'UA-732211-9', 'auto');
   const account = 'UA-732211-9'
-  var gaClientId = 'default';
+  var clientId = 'default';
+  /*
   ga(() => {
     // accountには以下のいずれかが入ります
     // - UA-31336-1
@@ -24,11 +25,20 @@
   const tracker = ga.create(account, "auto");
   var gaClientId = tracker.get("clientId");
   console.log('テストで取得したクライアントIDは、' + gaClientId)
+  });*/
+
+  // Queues a tracker object for creation.
+  ga('create', account, 'auto');
+  // Once the tracker has been created, log the
+  // client ID to the console.
+  ga(function(tracker) {
+    var clientId = tracker.get('clientId');
   });
 
-  console.log('変数gaClientIdは、' + gaClientId);
-  ga('send', 'pageview', {'dimension145': gaClientId});
-  //ga('set', 'dimension145', gaClientId);
+  console.log('変数clientIdは、' + clientId);
+  ga('send', 'pageview', {'dimension145': clientId});
+  ga('set', 'dimension145', clientId);
+
   </script>
   <!-- End Google Analytics -->
 <meta charset="UTF-8">
